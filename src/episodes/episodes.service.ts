@@ -14,14 +14,12 @@ export class EpisodeService {
     description: string,
     author: string,
     minutes: string,
-    image: string,
   ) {
     const newEpisode = new this.episodeModel({
       name,
       description,
       author,
-      minutes,
-      image,
+      minutes
     });
 
     const result = await newEpisode.save();
@@ -47,7 +45,6 @@ export class EpisodeService {
   async updateEpisode(
     episodeId: string,
     name: string,
-    image: string,
     author: string,
     description: string,
     minutes: string,
@@ -64,10 +61,6 @@ export class EpisodeService {
 
     if(author) {
         updateEpisode.author = author;
-    }
-
-    if (image) {
-      updateEpisode.image = image;
     }
 
     if (minutes) {
